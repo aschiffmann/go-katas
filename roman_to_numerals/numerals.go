@@ -13,11 +13,11 @@ type RomanNumber struct {
 }
 
 func (roman RomanNumber) GetArabicNumber() int {
-	length := len(roman.romanLetters)
-	if length <= 3 {
-		return length * convertLetter(roman.romanLetters[0])
+	result := 0
+	for l := range roman.romanLetters {
+		result += convertLetter(roman.romanLetters[l])
 	}
-	return 42
+	return result
 }
 
 func convertLetter(l rune) int {
