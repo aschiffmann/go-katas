@@ -15,6 +15,14 @@ func TestConversionsRomanToArabic(t *testing.T) {
 		{"C", 100},
 		{"D", 500},
 		{"M", 1000},
+		{"II", 2},
+		{"III", 3},
+		{"XX", 20},
+		{"XXX", 30},
+		{"CC", 200},
+		{"CCC", 300},
+		{"MM", 2000},
+		{"MMM", 3000},
 	}
 
 	for testNr, test := range testData {

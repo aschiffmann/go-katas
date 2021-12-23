@@ -9,31 +9,32 @@ func main() {
 }
 
 type RomanNumber struct {
-	romanLetters string
+	romanLetters []rune
 }
 
 func (roman RomanNumber) GetArabicNumber() int {
-	if len(roman.romanLetters) == 1 {
-		return convertLetter(roman.romanLetters)
+	length := len(roman.romanLetters)
+	if length <= 3 {
+		return length * convertLetter(roman.romanLetters[0])
 	}
 	return 42
 }
 
-func convertLetter(l string) int {
+func convertLetter(l rune) int {
 	switch l {
-	case "I":
+	case 'I':
 		return 1
-	case "V":
+	case 'V':
 		return 5
-	case "X":
+	case 'X':
 		return 10
-	case "L":
+	case 'L':
 		return 50
-	case "C":
+	case 'C':
 		return 100
-	case "D":
+	case 'D':
 		return 500
-	case "M":
+	case 'M':
 		return 1000
 	default:
 		return 0
@@ -41,9 +42,9 @@ func convertLetter(l string) int {
 }
 
 func (roman *RomanNumber) String() string {
-	return roman.romanLetters
+	return string(roman.romanLetters)
 }
 
 func NewRomanNumber(romanLetters string) RomanNumber {
-	return RomanNumber{romanLetters: romanLetters}
+	return RomanNumber{romanLetters: []rune(romanLetters)}
 }
