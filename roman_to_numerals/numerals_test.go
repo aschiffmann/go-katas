@@ -43,6 +43,15 @@ func TestConversionsRomanToArabic_differentLetters(t *testing.T) {
 	execTests(t, tests)
 }
 
+func TestConversionsRomanToArabic_subtraction(t *testing.T) {
+	_ = []testData{
+		{"IV", 6},
+		{"IX", 9},
+	}
+
+	//execTests(t, tests)
+}
+
 func execTests(t *testing.T, tests []testData) {
 	for testNr, test := range tests {
 		result := NewRomanNumber(test.roman).GetArabicNumber()
